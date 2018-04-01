@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">表情画板</string>
+    <string name="help_des">\t\t您可以使用表情画板App完成一些有趣的简单的画画，表情画板还有很多不足的地方，但是我回给他升级，如果您有什么好的建议欢迎您在反馈模块向我反馈欧！</string>
+    <string name="help_content">
+        \t\t感谢您使用表情画板！\n\n\t\t我是一个Android初学者，此APP是我利用课余时间学习、课余时间开发的Google StudyJams 2017 的大作业APP。
+        \n\n\t\t我十分喜欢研究手机App，但是不知从何开始学习，也没有人可以知道，加入StudyJams学习后，我发现开发App起始没有想象的那么难，相反的我发现它很有趣，并且自己也越来越有信心能够把它做好。
+    \n\n\t\t这是我利用课余时间写的App，App使用了Material Design设计，并且在反馈模块使用了FireBase数据库功能，您的反馈将会提交到云端，我会跟据您的建议来改善表情画板。
+        \n\n\t\t如果您在使用过程中出现任何问题，十分期待和感谢您的反馈。\n\n\t\t感谢您的支持！
+    </string>
+</resources>

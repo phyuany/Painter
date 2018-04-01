@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/titleStyle"
+        android:layout_height="50dp"
+        android:text="请选择画笔大小"
+        android:textColor="@color/colorAccent" />
+
+    <RadioGroup
+        android:id="@+id/rg_size_painter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_minimalSize_painter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="02"
+            android:textColor="@color/radioButtonColor" />
+
+        <RadioButton
+            android:id="@+id/rb_smallSize_painter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="06"
+            android:textColor="@color/radioButtonColor" />
+
+        <RadioButton
+            android:id="@+id/rb_middleSize_painter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:textColor="@color/radioButtonColor" />
+
+        <RadioButton
+            android:id="@+id/rb_bigSize_painter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="14"
+            android:textColor="@color/radioButtonColor" />
+
+        <RadioButton
+            android:id="@+id/rb_maximalSize_painter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18"
+            android:textColor="@color/radioButtonColor" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="确定" />
+
+
+        <Button
+            android:id="@+id/bt_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="取消" />
+    </LinearLayout>
+
+</LinearLayout>
