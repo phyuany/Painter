@@ -36,7 +36,7 @@ git clone https://github.com/kotlinup/Painter.git
 ## 3. 参考内容
 
 ## 4. 联系开发者：
-(1)邮箱：i@jkdev.cn<br>
+(1)邮箱：i@panhongyuan.com<br>
 (2)微信订阅：极客开发者up<br>
 ![极客开发者up](https://jkdev.cn/img/wechat.jpg)
 
