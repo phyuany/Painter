@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Painter.iml" filepath="$PROJECT_DIR$/Painter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Painter-master.iml" filepath="$PROJECT_DIR$/Painter-master.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Painter.iml" filepath="$PROJECT_DIR$/.idea/modules/Painter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Painter.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Painter.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Painter.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Painter.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Painter.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Painter.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Painter.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Painter.app.unitTest.iml" />
     </modules>
   </component>
 </project>

@@ -1,5 +1,6 @@
 package com.panhongyuan.painter.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -15,15 +16,18 @@ import com.panhongyuan.painter.R;
  * Created by pan on 16-11-16.
  */
 
+@SuppressLint("CustomSplashScreen")
 public class SplashActivity extends Activity {
 
 
     private TextView tv_versionName;//显示版本号的控件
 
+    @SuppressLint("HandlerLeak")
     Handler handler = new Handler() {
+        @SuppressLint("HandlerLeak")
         @Override
         public void handleMessage(Message msg) {
-            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+            @SuppressLint("HandlerLeak") Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
             startActivity(intent);
             finish();
             //开启跳转动画
@@ -31,6 +35,7 @@ public class SplashActivity extends Activity {
         }
     };
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +43,9 @@ public class SplashActivity extends Activity {
         //初始化控件
         initUI();
         //获取版本号并显示出来
-        tv_versionName.setText("版本号" + getVersionName());
+
+        String version = getVersionName();
+        tv_versionName.setText(version);
         //进入主界面
         new Thread(new Runnable() {
             @Override

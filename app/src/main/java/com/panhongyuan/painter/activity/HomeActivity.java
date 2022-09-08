@@ -101,9 +101,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == PERMISSION_REQUEST_CODE) {
-            for (int i = 0; i < permissions.length; i++) {
-                Log.i("HomeActivity", "申请的权限为：" + permissions[i] + ",申请结果：" + grantResults[i]);
-            }
         }
     }
 
@@ -230,11 +227,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
                 try {
                     //如果“表情画板”路径不存在就创建路径
-                    File imagePath = new File(Environment.getExternalStorageDirectory() + File.separator + "表情画板" + File.separator);
+                    // String path = Environment.getExternalStorageDirectory() + File.separator + "表情画板" + File.separator;
+                    @SuppressLint("SdCardPath") String path = "/sdcard/paint/";
+                    File imagePath = new File(path);
                     if (!imagePath.exists()) {
                         imagePath.mkdir();
                         //创建感谢文档
-                        String fileName = imagePath + File.separator + "感谢.txt";
+                        String fileName = String.format("%s/感谢.txt", imagePath);
                         File createFile = new File(fileName);
                         boolean newFile = createFile.createNewFile();
                         if (newFile) {
@@ -255,7 +254,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                             fileWriter.close();
                             bufferedWriter.close();
                             //将图片保存到路径中
-                            File file = new File(imagePath, System.currentTimeMillis() + "image.jpg");
+                            File file = new File(imagePath, String.format("%simage.jpg", System.currentTimeMillis()));
                             FileOutputStream fileOutputStream = new FileOutputStream(file);
                             copyBitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
                             fileOutputStream.close();
@@ -265,7 +264,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                         }
                     } else {
                         //将图片保存到路径中
-                        File file = new File(imagePath, System.currentTimeMillis() + "image.jpg");
+                        File file = new File(imagePath, String.format("%simage.jpg", System.currentTimeMillis()));
                         FileOutputStream fileOutputStream = new FileOutputStream(file);
                         copyBitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
                         fileOutputStream.close();
@@ -275,7 +274,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    System.out.print("产生的异常为：" + e);
+                    System.out.print(e.toString());
                     Toast.makeText(getApplicationContext(), "保存画画出错，请检查SD卡是否正常插入", Toast.LENGTH_LONG).show();
                 }
             }
@@ -350,6 +349,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
      *
      * @param view
      */
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -520,15 +520,15 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         view_color_show = (View) view.findViewById(R.id.iv_color_show);
         view_color_show.setBackgroundColor(Color.argb(255, COLOR_RBG_R, COLOR_RBG_G, COLOR_RBG_B));
         final TextView tv_color_R = (TextView) view.findViewById(R.id.tv_color_R);
-        tv_color_R.setText("R:" + COLOR_RBG_R);
+        tv_color_R.setText(String.format("R:%s", COLOR_RBG_R));
         SeekBar sb_color_R = (SeekBar) view.findViewById(R.id.sb_color_R);
         sb_color_R.setProgress(COLOR_RBG_R);
         final TextView tv_color_G = (TextView) view.findViewById(R.id.tv_color_G);
-        tv_color_G.setText("R:" + COLOR_RBG_G);
+        tv_color_G.setText(String.format("R:%s", COLOR_RBG_G));
         SeekBar sb_color_G = (SeekBar) view.findViewById(R.id.sb_color_G);
         sb_color_G.setProgress(COLOR_RBG_G);
         final TextView tv_color_B = (TextView) view.findViewById(R.id.tv_color_B);
-        tv_color_B.setText("R:" + COLOR_RBG_B);
+        tv_color_B.setText(String.format("R:%s", COLOR_RBG_B));
         SeekBar sb_color_B = (SeekBar) view.findViewById(R.id.sb_color_B);
         sb_color_B.setProgress(COLOR_RBG_B);
 
@@ -576,7 +576,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 COLOR_RBG_R = i;
                 if (b) {
-                    tv_color_R.setText("R:" + i);
+                    tv_color_R.setText(String.format("R:%s", i));
                     view_color_show.setBackgroundColor(Color.argb(255, COLOR_RBG_R, COLOR_RBG_G, COLOR_RBG_B));
                     STRING_COLOR = null;
                 }
@@ -598,7 +598,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 COLOR_RBG_G = i;
                 if (b) {
-                    tv_color_G.setText("G:" + i);
+                    tv_color_G.setText(String.format("G:%s", String.valueOf(i)));
                     view_color_show.setBackgroundColor(Color.argb(255, COLOR_RBG_R, COLOR_RBG_G, COLOR_RBG_B));
                     STRING_COLOR = null;
                 }
@@ -620,7 +620,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 COLOR_RBG_B = i;
                 if (b) {
-                    tv_color_B.setText("B:" + i);
+                    tv_color_B.setText(String.format("B:%s", i));
                     view_color_show.setBackgroundColor(Color.argb(255, COLOR_RBG_R, COLOR_RBG_G, COLOR_RBG_B));
                     STRING_COLOR = null;
                 }
